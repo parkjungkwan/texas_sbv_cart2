@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Nav></Nav>
     <ul>
 		<li v-for="item of items" :key="item.name" 
 					style="list-style-type : none" >
@@ -13,8 +14,12 @@
   </div>
 </template>
 <script>
+import Nav from '@/components/Nav.vue'
 export default {
   name: 'Cart',
+  components : {
+		Nav
+	},
 	data(){
    
     
