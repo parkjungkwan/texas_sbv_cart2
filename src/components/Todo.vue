@@ -9,7 +9,7 @@
         <span class="addbutton" @click="addTodo">추 가</span>
     </div>
     <ul id="todolist">
-        <li v-for="(v , i) of todos" :key="v.id" :class="v.clazz" >
+        <li @click="doneToggle(v.id)" v-for="(v , i) of todos" :key="v.id" :class="v.clazz" >
             <span>{{i+1}}. </span>
 			<span>{{v.todo}}</span>
             <span v-if="v.done" >(완료)</span>
@@ -34,15 +34,19 @@ export default {
 				{id: 3, todo: "ES6 학습", done:false, clazz: ''},
 				{id: 4, todo: "잠실 야구장", done:false, clazz: ''}
 			],
-			task : '',
-			seq : 0	
+			task : ''
 		}
 	},
 	methods : {
 		addTodo(){
 			this.todos.push({id: this.todos.length+1, todo: this.task, done:false, clazz: ''})
 		},
-		doneTodo(){},
+		doneToggle(index){
+			alert(`클릭한 아이디 ${index}`)
+			this.todos[index-1].done = !this.todos[index-1].done
+			this.todos[index-1].clazz = (this.todos[index-1].done)? 'checked': ''
+			
+		},
 		deleteTodo(){}
 	}
 }
