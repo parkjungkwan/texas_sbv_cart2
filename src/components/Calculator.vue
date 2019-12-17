@@ -73,7 +73,8 @@ export default {
 			this.setPrevios()
 		},
 		equal(){
-			this.current = `${this.operator(parseFloat(this.previos), parseFloat(this.current))}`
+			this.current = `${this.operator(parseFloat(this.previos),
+											parseFloat(this.current))}`
 			this.previos = null
 		} 
 	}
