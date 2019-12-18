@@ -29,7 +29,7 @@ export default {
 			let a = parseInt(this.first)
 			let b = parseInt(this.second)
 			alert(`a의 타입 ${typeof a} b의 타입 ${typeof b}`)
-			let arr = [a,b]
+			const arr = [a, b]
 			arr.sort(function(a, b){
 				return a - b
 			})
