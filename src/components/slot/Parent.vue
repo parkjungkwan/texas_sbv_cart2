@@ -1,11 +1,13 @@
 <template>
 <div>
   <BaseModal>
-    <template slot="header">
+    <template #header="slotProps">
       <h1>모달 제목</h1>
-      <button>닫기</button>
+      <button @click="slotProps.close">닫기</button>
     </template>
-    <p slot="content">모달의 컨텐츠입니다.</p>
+	<template #[slotName]>
+      <p>모달의 컨텐츠입니다.</p>
+    </template>
   </BaseModal>
 </div>
 </template>
@@ -15,6 +17,9 @@ export default{
 	name : "parent",
 	components : {
 		BaseModal
+	},
+	data(){
+		return {slotName : 'content'}
 	}
 }
 </script>
